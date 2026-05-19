@@ -73,9 +73,6 @@ with tempfile.TemporaryDirectory() as tmpdirname:
     ## these annotations were derived by Caner Ercan
     sdata.Labels['groundtruth_cell_labels'] = sdata.tables['table'].obs.pop('histoplus_cell_class')
 
-    # rename Tables
-    sdata.Tables['metadata'] = sdata.Tables['table']
-
     print(f"Output: {sdata}", flush=True)
 
     print(f"Writing to '{par['output']}'", flush=True)
