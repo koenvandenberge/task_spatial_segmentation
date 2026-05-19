@@ -55,6 +55,7 @@ with tempfile.TemporaryDirectory() as tmpdirname:
         sdata.tables["table"].uns[key] = value
 
     # add ground truth cell labels
+    ## these annotations were derived by Caner Ercan
     sdata.tables["table"].obs["groundtruth_celltype"] = sdata.tables["table"].obs.pop("histoplus_cell_class")
 
     # rename Images
@@ -69,6 +70,7 @@ with tempfile.TemporaryDirectory() as tmpdirname:
 
     # rename Labels
     ## add ground truth to cell labels
+    ## these annotations were derived by Caner Ercan
     sdata.Labels['groundtruth_cell_labels'] = sdata.tables['table'].obs.pop('histoplus_cell_class')
 
     # rename Tables
