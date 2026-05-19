@@ -56,7 +56,7 @@ with tempfile.TemporaryDirectory() as tmpdirname:
         sdata.tables["table"].uns[key] = value
 
     # add ground truth cell labels
-    # ...
+    sdata.tables["table"].obs["groundtruth_celltype"] = sdata.tables["table"].obs.pop("histoplus_cell_class")
 
     print(f"Output: {sdata}", flush=True)
 
