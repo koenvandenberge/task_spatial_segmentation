@@ -38,8 +38,7 @@ with tempfile.TemporaryDirectory() as tmpdirname:
         selection=None
     )
 
-    # remove morphology_focus
-    _ = sdata.images.pop("morphology_focus")
+
 
     print("Add uns to table", flush=True)
     new_uns = {
@@ -57,6 +56,23 @@ with tempfile.TemporaryDirectory() as tmpdirname:
 
     # add ground truth cell labels
     sdata.tables["table"].obs["groundtruth_celltype"] = sdata.tables["table"].obs.pop("histoplus_cell_class")
+
+    # rename Images
+    ## rename raw images to accomodate format
+    sdata.images['image'] = sdata.images['morphology_focus']
+    ## rm morphology_focus
+    _ = sdata.images.pop("morphology_focus")
+    ## rename hne image 
+    sdata.images['he_image'] = sdata.images['hne_aligned']
+    ## rm hne_aligned
+    _ = sdata.images.pop("hne_aligned")
+
+    # rename Labels
+    ## add ground truth to cell labels
+    sdata.Labels['groundtruth_cell_labels'] = sdata.tables['table'].obs.pop('histoplus_cell_class')
+
+    # rename Tables
+    sdata.Tables['metadata'] = sdata.Tables['table']
 
     print(f"Output: {sdata}", flush=True)
 
