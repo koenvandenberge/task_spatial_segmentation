@@ -10,13 +10,13 @@ set -e
 
 cat > /tmp/params.yaml << HERE
 param_list:
-  - id: ...
+  - id: tenx_xenium_groundtruth/cervical_cancer
     input: s3://hca-op-spatial/datasets/gt_annotated_data/Xenium_Prime_Cervical_Cancer_FFPE_Aligned.zarr
-    dataset_name: ...
-    dataset_url: ...
-    dataset_summary: ...
-    dataset_description: ...
-    dataset_organism: ...
+    dataset_name: 10X Xenium - Cervical Cancer
+    dataset_url: https://www.10xgenomics.com/datasets/xenium-prime-ffpe-human-cervical-cancer
+    dataset_summary: Gene expression library for 5K Xenium Prime panel + 100 custom genes on cervical cancer sample
+    dataset_description: Xenium Prime 5K In Situ Gene Expression with Cell Segmentation data for human cervical cancer (FFPE) using the Xenium Prime 5K Human Pan Tissue and Pathways Panel plus 100 Custom Genes.
+    dataset_organism: homo_sapiens
 
 publish_dir: temp
 output_dataset: '\$id/dataset.zarr'
